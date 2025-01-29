@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Technical Documentation Page" />
+    <title>Git Documentation Page</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main id="main-doc">
+      <nav id="navbar">
+        <header>Git Made Easy: Learn the Basics</header>
+        <ul>
+          <li><a class="nav-link" href="#Introduction_to_Git">Introduction to Git</a></li>
+          <li><a class="nav-link" href="#Differences_between_Git_and_Github">Differences between Git and Github</a></li>
+          <li><a class="nav-link" href="#Installing_and_configuring_Git">Installing and configuring Git</a></li>
+          <li><a class="nav-link" href="#Work_flow_of_Git">Work flow of Git</a></li>
+          <li><a class="nav-link" href="#Basic_Git_Commands">Basic Git Commands</a></li>
+          <li><a class="nav-link" href="#Branching_and_merging">Branching and merging</a></li>
+        </ul>
+      </nav>
+      <section class="main-section" id="Introduction_to_Git">
+        <header>Introduction to Git</header>
+        <article>
+          <p>Git is an essential tool for software development because it provides a reliable and efficient way to track changes in code. One of its main advantages is version control, which allows developers to save previous versions of a project and revert to them if necessary. This feature ensures that no changes are permanently lost and makes it easy to identify when and why modifications were made.</p>
+          <p>Another important reason to use Git is its collaboration capabilities. Multiple developers can work on the same project simultaneously without interfering with each other’s code. Git achieves this through branching and merging, allowing developers to create separate branches to work on new features or fixes, which can later be merged into the main project without disrupting the workflow.</p>
+          <p>Git is also valuable for backup and security. Since it is a distributed system, every developer has a full copy of the repository, ensuring that the project is not lost even if the main server fails. Additionally, Git is designed for efficiency, making it incredibly fast and capable of handling large projects with ease.</p>
+        </article>  
+      </section>
+      <section class="main-section" id="Differences_between_Git_and_Github">
+        <header>Differences between Git and Github</header>
+        <article>
+          <p>Git and GitHub are often confused, but they serve different purposes. Git is a distributed version control system that allows developers to track and manage changes in code. It operates primarily through the command line or specialized GUI tools, and repositories are stored locally on a developer’s computer. Git is mainly used for managing code history, creating branches, and merging changes.</p>
+          <p>On the other hand, GitHub is a cloud-based platform that hosts Git repositories and provides additional collaboration features. Unlike Git, which only manages version control locally, GitHub allows developers to store their projects online, making it easier to share code with others. It also includes features like pull requests, code reviews, and issue tracking, which facilitate teamwork and project management.</p>
+          <p>In summary, these are the main differences between Git and Github:</p>
+          <ul>
+            <li>Git is a tool for version control, while GitHub is a platform for hosting Git repositories.</li>
+            <li>Git works locally on a computer, while GitHub is cloud-based.</li>
+            <li>Git does not require an internet connection to manage repositories, while GitHub needs the internet for collaboration.</li>
+            <li>GitHub offers additional features like issue tracking, team management, and integration with other tools, which Git alone does not provide.</li>
+          </ul>
+        </article>  
+      </section>
+      <section class="main-section" id="Installing_and_configuring_Git">
+        <header>Installing and configuring Git</header>
+        <p>
+          <ol>
+            <li>Download and Install Git
+              <ul>
+                <li>Visit the official Git website: <a href="git-scm.com" target="_blank">git-scm.com</a> to download and install the latest version.</li>
+                <li>For Windows users, install WSL (Windows Subsystem for Linux) and follow the instructions on this <a href="https://learn.microsoft.com/en-us/windows/wsl/install" target="_blank">website</a>. This allows you to use Linux and Mac-like environments on Windows.</li>
+              </ul>
+            </li>
+            <li>After installation, open the Command Prompt (Windows) or Terminal (macOS/Linux).</li>
+            <li>Git Configuration: There are three types of configuration levels in Git:
+              <ul>
+                <li>System: Configuration for all users on the system.</li>
+                <li>Global: Configuration for all repositories of the current user.</li>
+                <li>Local: Configuration for the current repository.</li>
+              </ul>
+            </li>
+            <li>The first configurations you'll need are:
+              <ul>
+                <li>User Name</li>
+                <li>Email Address</li>
+                <li>Default Editor</li>
+                <li>Line Ending Configuration</li>
+              </ul>
+            </li>
+            <li>Setting Up User Name and Email: Run the following commands to set up your name and email for global use:
+              <ul>
+                <code>git config --global user.name "Your Name"</code>
+                <code>git config --global user.email "youremail@gmail.com"</code>
+              </ul>
+            </li>
+            <li>Set Default Editor: You can configure the default editor for Git. Here, we're setting it to Visual Studio Code (if installed):
+              <ul>
+                <code>git config --global core.editor "code --wait"</code>
+              </ul>
+            </li>
+            <li>Open Configuration File: To view or edit the settings manually, you can open the Git configuration file with:
+              <ul>
+                <code>git config --global -e</code>
+              </ul>
+            </li>
+            <li>Configure Line Endings: Git has a setting for handling line endings, especially important when working across different operating systems.
+              <ul>
+                <li>Windows uses /r for Carriage Return and /n for Line Feed.</li>
+                <li>Linux/macOS only use /n.</li>
+              </ul>
+              To prevent issues with line endings between systems, you can set up core.autocrlf:
+              <ul>
+                <li>For Windows users:</li>
+                <code>git config --global core.autocrlf true</code>
+                <li>For macOS/Linux users:</li>
+                <code>git config --global core.autocrlf input</code>
+              </ul>
+            </li>
+            <li>More Git Configuration: To explore more configurations, you can:
+              <ul>
+                <li>Search online for Git configuration options.</li>
+                <li>Use the command: <code>git config --help</code></li>
+                <li>To scroll through the help pages, use the spacebar. To exit, press q.</li>
+                <li>Or use:<code>git config --h></code></li>
+              </ul>
+            </li>
+          </ol>
+        </p>
+      </section>
+      <section class="main-section" id="Work_flow_of_Git">
+        <header>Work flow of Git</header>
+        <p>In Git, you start with your project directory, which is where all your project files are stored. Inside this project directory, Git creates a hidden subdirectory called the repository. This repository contains all the version history of your project and other necessary files that Git uses to track changes.</p>
+        <p>When you work on your project, you make changes to your files. But, rather than directly saving these changes into the repository, Git introduces a special stage called the Staging Area (also called the Index). Think of the Staging Area as a place where you prepare and review the changes you want to commit. You can choose which changes to include in your next commit here.</p>
+        <p>After reviewing the changes in the Staging Area, you can commit them. A commit is like a snapshot of your project at that moment. It records the current state of your files and saves this snapshot in the repository. This allows you to go back to previous versions of your project if needed.</p>
+        <p>In summary:
+          <ul>
+            <li>Project Directory: Where you work and edit your files.</li>
+            <li>Repository: A hidden folder inside your project directory that holds all your project’s version history.</li>
+            <li>Staging Area: A place where you prepare and review your changes before committing.</li>
+            <li>Commit: A snapshot of your project saved into the repository, capturing your changes at a specific point in time.</li>
+          </ul>
+        </p>
+        <p>This workflow allows you to carefully track and manage your changes in Git, ensuring you can always return to earlier versions of your project and collaborate with others effectively.</p>
+      </section>
+      <section class="main-section" id="Basic_Git_Commands">
+        <header>Basic Git Commands</header>
+        <li>git init – Initializing a Repository</li>
+        <p>This command initializes a new Git repository in your current directory, creating a .git folder that contains all the necessary files for Git to track changes.<code>git init</code></p>
+        <li>git clone – Cloning a Repository</li>
+        <p>Clones an existing Git repository from a remote location (such as GitHub) to your local machine.<code>git clone <repository-url></code></p>
+        <li>git status – Checking Repository Status</li>
+        <p>Displays the current status of the working directory, showing untracked, modified, and staged files.<code>git status</code></p>
+        <li>git add – Staging Files</li>
+        <p>Adds changes in your working directory to the staging area before committing them.<code>git add <file-name>    # Adds a specific file</code><code>git add .              # Adds all changes</code></p>
+        <li>git commit – Saving Changes</li>
+        <p>Records your changes to the local repository with a message describing the changes.<code>git commit -m "Commit message"</code></p>
+      </section>
+      <section class="main-section" id="Branching_and_merging">
+        <header>Branching and merging</header>
+        <p>Branches in Git allow you to work on different versions of a project independently. You can experiment with new features without affecting the main codebase.</p>
+        <li>Creating a Branch</li>
+        <p>Creates a new branch called new-branch.<code>git branch new-branch</code></p>
+        <li>Switching Branches</li>
+        <p>Switches to an existing branch.<code>git checkout new-branch</code></p>
+        <li>Merging Branches</li>
+        <p>Merges the changes from one branch into another.<code>git merge new-branch</code></p>
+        <li>Handling Merge Conflicts</li>
+        <p>Merge conflicts happen when Git cannot automatically combine changes. You’ll need to manually resolve conflicts and then commit the resolved changes.</p>
+      </section>  
+    </main>
+  </body>  
+</html>
